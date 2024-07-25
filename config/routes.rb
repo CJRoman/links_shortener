@@ -3,5 +3,5 @@ Rails.application.routes.draw do
 
   get "l/:token" => "link_processing#process"
 
-  root to: "links#index"
+  root to: "links#new"
 end
