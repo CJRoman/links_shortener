@@ -1,6 +1,23 @@
 <div class="flex flex-col items-center">
   <div class="text-xl mb-5">Here is your link:</div>
-  <div class="border-2 border-green-500 rounded-xl px-5 py-3 text-2xl cursor-pointer mb-5"><%= generate_short_link(@link) %></div>
+  <div class="text-lg mb-5 hidden bg-green-500 text-white rounded px-5 py-1" id="clipboardNotification">Link is copied to clipboard!</div>
+  <div class="border-2 border-green-500 rounded-xl px-5 py-3 text-2xl cursor-pointer mb-5 active:bg-green-500 active:text-white transition-all duration-75" id="link"><%= generate_short_link(@link) %></div>
   <%= link_to "Go back", root_path, class: "hover:text-blue-500" %>
 </div>
 
+<script>
+  const link = document.getElementById("link");
+  const copyLink = async (text) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      document.getElementById("clipboardNotification").classList.remove('hidden');
+    } catch (err) {
+      console.error('Failed to copy: ', err);
+    }
+  };
+
+  link.addEventListener('click', (e) => {
+    const text = e.target.textContent;
+    copyLink(text);
+  });
+</script>
