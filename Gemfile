@@ -69,3 +69,5 @@ end
 gem "pry", "~> 0.14.2"
 
 gem "tailwindcss-rails", "~> 2.6"
+
+gem "sidekiq", "~> 7.3"
