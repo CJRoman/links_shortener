@@ -67,3 +67,5 @@ group :test do
 end
 
 gem "pry", "~> 0.14.2"
+
+gem "tailwindcss-rails", "~> 2.6"

@@ -1,3 +1,10 @@
-<h1>New link</h1>
+<%= form_with(model: @link) do |form| %>
+  <div class="flex flex-col items-center mb-5">
+    <%= form.label :full_link, "Enter your link:", class: "mb-3 block" %>
+    <%= form.text_field :full_link, class: "rounded w-full border-2 border-blue-500 active:outline-none focus:outline-none" %>
+  </div>
 
-<%= render "form", link: @link %>
+  <div class="flex justify-center">
+    <%= form.submit value: "Squeeze it!", class: "rounded-lg bg-blue-500 hover:bg-blue-700 text-xl cursor-pointer text-white py-2 px-5 " %>
+  </div>
+<% end %>
