@@ -19,7 +19,7 @@ class LinksController < ApplicationController
         format.html { redirect_to link_url(service_result[:link].id), notice: "Here is your short link:" }
         format.json { render :show, status: :created, location: service_result[:link] }
       else
-        format.html { render :new, status: :unprocessable_entity, alert: "There's an error generating short link" }
+        format.html { redirect_to new_link_path }
         format.json { render json: service_result[:link].errors, status: :unprocessable_entity }
       end
     end
